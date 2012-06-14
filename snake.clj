@@ -253,4 +253,9 @@
 ; not if loaded in a REPL with load-file.
 ; When run as a script, the path to this file
 ; will be a command-line argument.
-(if *command-line-args* (main))
+;(if *command-line-args* (main))
+
+; Shawn: The above commented out. On my system *command-line-args* is nil when
+; run via "clj snake.clj".
+; TODO: Reenable the above line.
+(main)
