@@ -153,10 +153,10 @@
    associated with a given key code."
   [key-code]
   (cond 
-    (= key-code java.awt.event.KeyEvent/VK_LEFT) :left
-    (= key-code java.awt.event.KeyEvent/VK_RIGHT) :right
-    (= key-code java.awt.event.KeyEvent/VK_UP) :up
-    (= key-code java.awt.event.KeyEvent/VK_DOWN) :down
+    (= key-code KeyEvent/VK_LEFT) :left
+    (= key-code KeyEvent/VK_RIGHT) :right
+    (= key-code KeyEvent/VK_UP) :up
+    (= key-code KeyEvent/VK_DOWN) :down
     true nil))
 
 (defn snake-with-key-direction [snake key-code-atom]
