@@ -22,8 +22,8 @@
 
 (defn board-dimensions [panel cell-size]
   (let [size (.getPreferredSize panel)]
-    [(quot (.getWidth size) cell-size)
-     (quot (.getHeight size) cell-size)]))
+    [(quot (int (.getWidth size)) cell-size)
+     (quot (int (.getHeight size)) cell-size)]))
 
 (defn create-center-cell [width height]
   (struct cell-struct (quot width 2) (quot height 2)))
