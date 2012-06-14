@@ -1,3 +1,5 @@
+; To run: "clj -m snake"
+;
 ; This is a Swing-based game where the arrow keys to guide
 ; a snake to apples.  Each time the snake eats an apple it
 ; grows and a new apple appears in a random location.
@@ -7,8 +9,9 @@
 ;
 ; This was originally written by Abhishek Reddy.
 ; Mark Volkmann rewrote it in an attempt to make it easier to understand.
+; Shawn Lewis updated it to work with clojure 1.3 and fixed a couple of bugs.
 
-(ns clojure_snake_game.snake
+(ns snake
   (:import
     (java.awt Color Dimension)
     (java.awt.event KeyEvent KeyListener)
@@ -233,7 +236,7 @@
     (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
     (.setVisible true)))
 
-(defn main []
+(defn -main []
   (let [frame (JFrame. "Snake")
         width 30
         height 30
@@ -248,14 +251,3 @@
       (paint-game game)
       (Thread/sleep (game :ms-per-move))
       (recur (step game key-code-atom)))))
-
-; Only run the application if this is being run as a script,
-; not if loaded in a REPL with load-file.
-; When run as a script, the path to this file
-; will be a command-line argument.
-;(if *command-line-args* (main))
-
-; Shawn: The above commented out. On my system *command-line-args* is nil when
-; run via "clj snake.clj".
-; TODO: Reenable the above line.
-(main)
