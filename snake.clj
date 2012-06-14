@@ -8,14 +8,12 @@
 ; This was originally written by Abhishek Reddy.
 ; Mark Volkmann rewrote it in an attempt to make it easier to understand.
 
-(ns com.ociweb.snake
+(ns clojure_snake_game.snake
   (:import
     (java.awt Color Dimension)
-    (java.awt.event KeyListener)
-    (javax.swing JFrame JOptionPane JPanel))
-  (:use clojure.contrib.import-static))
-
-(import-static java.awt.event.KeyEvent VK_LEFT VK_RIGHT VK_UP VK_DOWN)
+    (java.awt.event KeyEvent KeyListener)
+    (javax.swing JFrame JOptionPane JPanel)
+    ))
 
 (defstruct cell-struct :x :y)
 (defstruct snake-struct :body :direction)
@@ -155,10 +153,10 @@
    associated with a given key code."
   [key-code]
   (cond 
-    (= key-code VK_LEFT) :left
-    (= key-code VK_RIGHT) :right
-    (= key-code VK_UP) :up
-    (= key-code VK_DOWN) :down
+    (= key-code java.awt.event.KeyEvent/VK_LEFT) :left
+    (= key-code java.awt.event.KeyEvent/VK_RIGHT) :right
+    (= key-code java.awt.event.KeyEvent/VK_UP) :up
+    (= key-code java.awt.event.KeyEvent/VK_DOWN) :down
     true nil))
 
 (defn snake-with-key-direction [snake key-code-atom]
